@@ -21,25 +21,27 @@
 <script>
     var count =0;
     $('#add').on("click",function(){
-    var rec = $('#record').val();
-    $('#record').val("");
-    count = count + 1;
-    if(rec!=""){
-        var elem = $('<li></li>').text(rec);
-        $(elem).append("<button class = 'remove'> X </button>");
-        $('ol').append(elem);
-        $('.remove').click(function(){
-        $(this).parent().remove();
-        });
-    }
+        var rec = $('#record').val();
+        $('#record').val("");
+        count = count + 1;
+        if(rec!=""){
+                var elem = $('<li></li>').text(rec);
+                $(elem).append("<button class = 'remove'> X </button>");
+                $('ol').append(elem);
+                $('.remove').click(function(){
+                    $(this).parent().remove();
+                });
+        }
+        
         if(count==1){
             $('#add').after("<button id = 'removeAll'> Clear All </button>");
         }
+        
         $('#removeAll').click(function(){
-        $('.remove').parent().remove();
-    });
+            $('.remove').parent().remove();
+        });
     
-}); 
+    }); 
 
 
 </script>
