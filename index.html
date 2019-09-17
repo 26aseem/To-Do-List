@@ -9,8 +9,32 @@
 <body>
     <h1>My To-Do List</h1>
     <h2>Make your own list</h2>
+    <div id="list">
+        <h2>Let's create the list</h2>
+        <h2>Click the Add Button to add new list items to your list and click the X to remove item from the list</h2><br>
+        <input type = "text" id = "record" autofocus placeholder="List Item"> </input>
+        <button type="button" id = "add">Add List Item</button>
+        <ol type="I">
+            
+        </ol>
+    </div>
+<script>
+$('#add').on("click",function(){
+    var rec = $('#record').val();
+    $('#record').val("");
+    if(rec!=""){
+        var elem = $('<li></li>').text(rec);
+        $(elem).append("<button class = 'remove'> X </button>");
+        $('ol').append(elem);
+
+        
+        $('.remove').click(function(){
+        $(this).parent().remove();
+    });
+    }
+}); 
+
+
+</script>
 </body>
-
-
-
 </html>
