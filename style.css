@@ -20,6 +20,7 @@ body{
     background-size: cover;        
 }
 
+
 div#head{
     width:100%;
     padding: 1.5% 0;
@@ -44,7 +45,8 @@ div#head{
 
 #list{
     text-align: center;
-    padding:2% 0 0 0;
+    padding:0 0 0 0;
+    
 }
 
 #list h3{
@@ -102,12 +104,29 @@ input{
 ol{
     margin-top:3%;
     font-family: 'Times New Roman', Times, serif;
+    list-style-type: none;   
+    width:100%;
 }
 
 li{
-    width:20%;
+    width:100%;
     height:10%;
-    padding:1%;
+    padding:0.5% 1%;
     margin-left:2%;
     text-align: left;
 }
+
+li span button.remove{
+    padding:0.5% 1%;
+    margin-right:2%;
+    background-color: black;
+    color:white;
+}
+
+li span{
+    color:white;
+    font-weight: 600;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size:120%;
+}
+

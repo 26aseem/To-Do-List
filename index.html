@@ -9,34 +9,43 @@
 </head>
 
 <body>
+        <div id="head">
+            <h1>My To-Do List</h1>
+            <h2>Make your own list</h2>
+        </div>
 
-    <div id="head">
-        <h1>My To-Do List</h1>
-        <h2>Make your own list</h2>
-    </div>
+        <div id="list">
+            <h3> Add Button to add new List Item <span> &nbsp; || &nbsp;</span> Clear All Button to clear the list <span> &nbsp; || &nbsp;</span> Remove List Item </h3>
+            <input type = "text" id = "record" autofocus placeholder="List Item"> </input>
+            <button type="button" id = "add">Add List Item</button>
 
-
-    <div id="list">
-        <h3> Add Button to add new List Item <span> &nbsp; || &nbsp;</span> Clear All Button to clear the list <span> &nbsp; || &nbsp;</span> Remove List Item </h3>
-        <input type = "text" id = "record" autofocus placeholder="List Item"> </input>
-        <button type="button" id = "add">Add List Item</button>
-        <ol type="1">        
-        </ol>
-    </div>
-
+            <ol>        
+            </ol>
+        </div>
+    
+        
 
     <script>
+        $('input').keypress(function(e){
+            var key = e.which;
+            if(key==13){
+                $('#add').trigger("click");
+            }
+        });
+               
+
         var count =0;
         $('#add').on("click",function(){
             var rec = $('#record').val();
             $('#record').val("");
             count = count + 1;
             if(rec!=""){
-                    var elem = $('<li></li>').text(rec);
-                    $(elem).append("<button class = 'remove'> X </button>");
-                    $('ol').append(elem);
+                    var elem = $('<span></span>').text(rec);
+                    elem = $(elem).prepend("<button class = 'remove'> X </button>");
+                    var el = $('<li></li>').html(elem);
+                    $('ol').append(el);
                     $('.remove').click(function(){
-                        $(this).parent().remove();
+                        $(this).parent().parent().remove();
                     });
             }
         
@@ -49,6 +58,7 @@
              });
     
             }); 
+          
 
     </script>
 
