@@ -4,46 +4,53 @@
     <title> My To-Do List</title>
     <link rel = "stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ravi+Prakash&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet"> 
 </head>
 
 <body>
-    <h1>My To-Do List</h1>
-    <h2>Make your own list</h2>
+
+    <div id="head">
+        <h1>My To-Do List</h1>
+        <h2>Make your own list</h2>
+    </div>
+
+
     <div id="list">
-        <h2>Let's create the list</h2>
-        <h2>Click the Add Button to add new list items to your list and click the X to remove item from the list</h2><br>
+        <h3> Add Button to add new List Item <span> &nbsp; || &nbsp;</span> Clear All Button to clear the list <span> &nbsp; || &nbsp;</span> Remove List Item </h3>
         <input type = "text" id = "record" autofocus placeholder="List Item"> </input>
         <button type="button" id = "add">Add List Item</button>
-        <ol type="I">
-            
+        <ol type="1">        
         </ol>
     </div>
-<script>
-    var count =0;
-    $('#add').on("click",function(){
-        var rec = $('#record').val();
-        $('#record').val("");
-        count = count + 1;
-        if(rec!=""){
-                var elem = $('<li></li>').text(rec);
-                $(elem).append("<button class = 'remove'> X </button>");
-                $('ol').append(elem);
-                $('.remove').click(function(){
-                    $(this).parent().remove();
-                });
-        }
+
+
+    <script>
+        var count =0;
+        $('#add').on("click",function(){
+            var rec = $('#record').val();
+            $('#record').val("");
+            count = count + 1;
+            if(rec!=""){
+                    var elem = $('<li></li>').text(rec);
+                    $(elem).append("<button class = 'remove'> X </button>");
+                    $('ol').append(elem);
+                    $('.remove').click(function(){
+                        $(this).parent().remove();
+                    });
+            }
         
-        if(count==1){
-            $('#add').after("<button id = 'removeAll'> Clear All </button>");
-        }
+            if(count==1){
+                $('#add').after("<button id = 'removeAll'> Clear All </button>");
+            }
         
-        $('#removeAll').click(function(){
-            $('.remove').parent().remove();
-        });
+            $('#removeAll').click(function(){
+                $('.remove').parent().remove();
+             });
     
-    }); 
+            }); 
 
+    </script>
 
-</script>
 </body>
 </html>
